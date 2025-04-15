@@ -1,0 +1,30 @@
+8. Faça um algoritmo que calcule a área de um triângulo, considerando a fórmula
+Áܴܣܧ ൌ   ஻஺ௌா .஺௅்௎ோ஺
+ଶ . Utilize as variáveis AREA, BASE e ALTURA e os
+operadores aritméticos de multiplicação e divisã
+
+
+Resposta:
+
+#include <stdio.h>
+
+int main() {
+   
+    float AREA, BASE, ALTURA;
+
+    
+    printf("Digite o valor da base do triângulo: ");
+    scanf("%f", &BASE);
+
+    printf("Digite o valor da altura do triângulo: ");
+    scanf("%f", &ALTURA);
+
+   
+    AREA = (BASE * ALTURA) / 2;
+
+   
+    printf("A área do triângulo é: %.2f\n", AREA);
+
+    return 0;
+}
+
