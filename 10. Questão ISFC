@@ -9,21 +9,21 @@ d) Apresente o valor calculado.
 #include <stdio.h>
 
 int main() {
-    // Declaração das variáveis
+    
     int numero1, numero2, resultado;
 
-    // Leitura do primeiro número inteiro
+   
     printf("Digite o primeiro número inteiro: ");
     scanf("%d", &numero1);
 
-    // Leitura do segundo número inteiro
+    
     printf("Digite o segundo número inteiro: ");
     scanf("%d", &numero2);
 
-    // Efetua a adição
+   
     resultado = numero1 + numero2;
 
-    // Apresenta o valor calculado
+    
     printf("A soma dos dois números é: %d\n", resultado);
 
     return 0;
