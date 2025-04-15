@@ -1,0 +1,26 @@
+7. Faça um algoritmo para calcular a área de uma circunferência, considerando a
+fórmula ÁREA = π * RAIO2
+. Utilize as variáveis AREA e RAIO, a constante π (pi =
+3,14159) e os operadores aritméticos de multiplicação. 
+
+
+
+Resposta:
+
+int main() {
+   
+    float AREA, RAIO;
+    const float PI = 3.14159;
+
+ 
+    printf("Digite o valor do raio: ");
+    scanf("%f", &RAIO);
+
+    
+    AREA = PI * RAIO * RAIO;
+
+   
+    printf("A área da circunferência é: %.2f\n", AREA);
+
+    return 0;
+}
