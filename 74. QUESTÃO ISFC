@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    int opcao;
+
+    printf("Escolha a forma de venda:\n");
+    printf("1 - Venda à Vista\n");
+    printf("2 - Venda a Prazo 30 dias\n");
+    printf("3 - Venda a Prazo 60 dias\n");
+    printf("4 - Venda a Prazo com 90 dias\n");
+    printf("5 - Venda com Cartão de Débito\n");
+    printf("6 - Venda com Cartão de Crédito\n");
+    printf("Digite a opção: ");
+    scanf("%d", &opcao);
+
+    switch(opcao) {
+        case 1:
+            printf("Você escolheu: Venda à Vista\n");
+            break;
+        case 2:
+            printf("Você escolheu: Venda a Prazo 30 dias\n");
+            break;
+        case 3:
+            printf("Você escolheu: Venda a Prazo 60 dias\n");
+            break;
+        case 4:
+            printf("Você escolheu: Venda a Prazo com 90 dias\n");
+            break;
+        case 5:
+            printf("Você escolheu: Venda com Cartão de Débito\n");
+            break;
+        case 6:
+            printf("Você escolheu: Venda com Cartão de Crédito\n");
+            break;
+        default:
+            printf("Opção inválida!\n");
+    }
+
+    return 0;
+}
