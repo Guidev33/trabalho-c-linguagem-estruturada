@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+int main() {
+    int numeroConta;
+    char nome[50];
+    float saldo = 0.0, valor;
+    int opcao;
+
+    printf("Digite o número da conta: ");
+    scanf("%d", &numeroConta);
+    printf("Digite o nome do titular: ");
+    getchar(); // Limpa buffer do teclado
+    fgets(nome, sizeof(nome), stdin);
+
+    do {
+        printf("\n--- Menu Conta Corrente ---\n");
+        printf("1 - Depositar\n");
+        printf("2 - Sacar\n");
+        printf("3 - Consultar saldo\n");
+        printf("0 - Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        switch(opcao) {
+            case 1:
+                printf("Digite o valor para depósito: R$ ");
+                scanf("%f", &valor);
+                saldo += valor;
+                break;
+            case 2:
+                printf("Digite o valor para saque: R$ ");
+                scanf("%f", &valor);
+                if (valor <= saldo) {
+                    saldo -= valor;
+                } else {
+                    printf("Saldo insuficiente!\n");
+                }
+                break;
+            case 3:
+                printf("Saldo atual: R$ %.2f\n", saldo);
+                break;
+            case 0:
+                printf("Encerrando o programa.\n");
+                break;
+            default:
+                printf("Opção inválida!\n");
+        }
+
+    } while(opcao != 0);
+
+    return 0;
+}
