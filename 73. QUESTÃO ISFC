@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float numero;
+    int opcao;
+
+    printf("Digite um número real: ");
+    scanf("%f", &numero);
+
+    printf("\nEscolha a opção de cálculo:\n");
+    printf("101 - Raiz quadrada\n");
+    printf("102 - A metade\n");
+    printf("103 - 10%% do número\n");
+    printf("104 - O dobro\n");
+    printf("Digite a opção: ");
+    scanf("%d", &opcao);
+
+    switch(opcao) {
+        case 101:
+            if (numero >= 0) {
+                printf("Raiz quadrada: %.2f\n", sqrt(numero));
+            } else {
+                printf("Não é possível calcular a raiz quadrada de número negativo.\n");
+            }
+            break;
+        case 102:
+            printf("A metade: %.2f\n", numero / 2);
+            break;
+        case 103:
+            printf("10%% do número: %.2f\n", numero * 0.10);
+            break;
+        case 104:
+            printf("O dobro: %.2f\n", numero * 2);
+            break;
+        default:
+            printf("Opção inválida!\n");
+    }
+
+    return 0;
+}
