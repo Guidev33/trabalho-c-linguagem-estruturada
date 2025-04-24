@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    int valor, somaPositivos = 0, contNegativos = 0;
+
+    for (int i = 1; i <= 50; i++) {
+        printf("Digite o %dº valor: ", i);
+        scanf("%d", &valor);
+
+        if (valor >= 0)
+            somaPositivos += valor;
+        else
+            contNegativos++;
+    }
+
+    printf("Soma dos positivos: %d\n", somaPositivos);
+    printf("Quantidade de negativos: %d\n", contNegativos);
+
+    return 0;
+}
