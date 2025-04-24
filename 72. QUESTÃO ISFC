@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    char nome[50];
+    int idade;
+
+    printf("Digite o nome do atleta: ");
+    fgets(nome, sizeof(nome), stdin);
+
+    printf("Digite a idade do atleta: ");
+    scanf("%d", &idade);
+
+    printf("Categoria: ");
+    if (idade >= 5 && idade <= 10) {
+        printf("Infantil\n");
+    } else if (idade >= 11 && idade <= 15) {
+        printf("Juvenil\n");
+    } else if (idade >= 16 && idade <= 20) {
+        printf("Junior\n");
+    } else if (idade >= 21 && idade <= 25) {
+        printf("Profissional\n");
+    } else {
+        printf("Fora da faixa etária\n");
+    }
+
+    return 0;
+}
