@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char letra;
+
+    printf("Digite a primeira letra do estado civil: ");
+    scanf(" %c", &letra);
+    letra = toupper(letra); // Converte para maiúscula
+
+    switch (letra) {
+        case 'S':
+            printf("Solteiro\n");
+            break;
+        case 'C':
+            printf("Casado\n");
+            break;
+        case 'V':
+            printf("Viúvo\n");
+            break;
+        case 'D':
+            printf("Divorciado\n");
+            break;
+        case 'Q':
+            printf("Desquitado\n");
+            break;
+        default:
+            printf("Letra inválida para estado civil.\n");
+    }
+
+    return 0;
+}
