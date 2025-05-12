@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    int N[20], temp;
+
+    for (int i = 0; i < 20; i++) {
+        printf("Digite N[%d]: ", i);
+        scanf("%d", &N[i]);
+    }
+
+    // Trocar posições
+    for (int i = 0; i < 10; i++) {
+        temp = N[i];
+        N[i] = N[19 - i];
+        N[19 - i] = temp;
+    }
+
+    printf("Vetor modificado: ");
+    for (int i = 0; i < 20; i++) {
+        printf("%d ", N[i]);
+    }
+
+    return 0;
+}
