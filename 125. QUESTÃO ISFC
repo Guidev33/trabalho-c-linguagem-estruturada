@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int andares, i;
+    int entrou, saiu, dentro = 0;
+
+    printf("Digite o número de andares: ");
+    scanf("%d", &andares);
+
+    for (i = 1; i <= andares; i++) {
+        printf("\nAndar %d:\n", i);
+        printf("Pessoas que entraram: ");
+        scanf("%d", &entrou);
+        printf("Pessoas que saíram: ");
+        scanf("%d", &saiu);
+
+        dentro = dentro + entrou - saiu;
+
+        if (dentro > 15) {
+            int excesso = dentro - 15;
+            printf("EXCESSO DE PASSAGEIROS. DEVEM SAIR %d pessoas.\n", excesso);
+            dentro = 15; // Corrige a lotação máxima
+        }
+
+        printf("Pessoas no elevador agora: %d\n", dentro);
+    }
+
+    printf("\nTotal de pessoas que irão descer no final: %d\n", dentro);
+
+    return 0;
+}
