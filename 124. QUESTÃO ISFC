@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    int matricula;
+    float nota1, nota2, nota3, media;
+    int aprovados = 0, reprovados = 0, total = 0;
+
+    while (1) {
+        printf("Matrícula (9999 para encerrar): ");
+        scanf("%d", &matricula);
+        if (matricula == 9999) break;
+
+        printf("Nota 1: ");
+        scanf("%f", &nota1);
+        printf("Nota 2: ");
+        scanf("%f", &nota2);
+        printf("Nota 3: ");
+        scanf("%f", &nota3);
+
+        media = ((2 * nota1) + (3 * nota2) + (4 * nota3)) / 9;
+
+        printf("Matrícula: %d | Média: %.2f | ", matricula, media);
+
+        if (media >= 5.0) {
+            printf("APROVADO\n");
+            aprovados++;
+        } else {
+            printf("REPROVADO\n");
+            reprovados++;
+        }
+
+        total++;
+    }
+
+    printf("\nTotal de alunos: %d\n", total);
+    printf("Aprovados: %d\n", aprovados);
+    printf("Reprovados: %d\n", reprovados);
+
+    return 0;
+}
