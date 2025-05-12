@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    int N, i;
+    int a = 0, b = 1, c;
+
+    printf("Digite o número de termos da sequência de Fibonacci (>=2): ");
+    scanf("%d", &N);
+
+    printf("Sequência de Fibonacci:\n");
+    printf("%d %d", a, b);
+
+    for (i = 3; i <= N; i++) {
+        c = a + b;
+        printf(" %d", c);
+        a = b;
+        b = c;
+    }
+
+    printf("\n");
+    return 0;
+}
