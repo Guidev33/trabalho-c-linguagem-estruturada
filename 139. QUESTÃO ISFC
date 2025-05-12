@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct {
+    char nome[50];
+    char endereco[100];
+    char telefone[20];
+} Cliente;
+
+int main() {
+    Cliente clientes[50];
+    int total = 0;
+    char resposta;
+
+    // Cadastro
+    do {
+        if (total >= 50) break;
+
+        printf("\nCliente %d:\n", total + 1);
+        printf("Nome: "); fgets(clientes[total].nome, 50, stdin);
+        printf("Endereço: "); fgets(clientes[total].endereco, 100, stdin);
+        printf("Telefone: "); fgets(clientes[total].telefone, 20, stdin);
+
+        total++;
+
+        printf("Novo cliente (S/N)? ");
+        scanf(" %c", &resposta);
+        getchar();
+    } while (resposta == 'S' || resposta == 's');
+
+    // Mudança de cor (no Windows)
+    system("color 1E"); // Fundo azul (1), texto amarelo (E)
+
+    // Limpar tela
+    system("cls");
+
+    int codigo;
+    while (1) {
+        printf("\nDigite o código do cliente (999 para sair): ");
+        scanf("%d", &codigo);
+
+        if (codigo == 999) break;
+
+        if (codigo >= 0 && codigo < total) {
+            printf("Nome: %s", clientes[codigo].nome);
+            printf("Endereço: %s", clientes[codigo].endereco);
+            printf("Telefone: %s", clientes[codigo].telefone);
+        } else {
+            printf("Código inválido!\n");
+        }
+    }
+
+    return 0;
+}
