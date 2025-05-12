@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+    int N, i = 0;
+
+    // Lê o número do usuário
+    printf("Digite um número inteiro: ");
+    scanf("%d", &N);
+
+    // Verifica o maior quadrado menor ou igual a N
+    while ((i + 1) * (i + 1) <= N) {
+        i++;
+    }
+
+    int maiorQuadrado = i * i;
+
+    // Exibe o resultado
+    printf("O maior quadrado menor ou igual a %d é %d (quadrado de %d).\n", N, maiorQuadrado, i);
+
+    return 0;
+}
