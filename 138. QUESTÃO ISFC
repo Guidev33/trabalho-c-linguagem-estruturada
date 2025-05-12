@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    char nome[50];
+    char endereco[100];
+    char telefone[20];
+} Cliente;
+
+int main() {
+    Cliente clientes[50];
+    int total = 0;
+    char resposta;
+
+    do {
+        if (total >= 50) break;
+
+        printf("\nCliente %d:\n", total + 1);
+        printf("Nome: "); fgets(clientes[total].nome, 50, stdin);
+        printf("Endereço: "); fgets(clientes[total].endereco, 100, stdin);
+        printf("Telefone: "); fgets(clientes[total].telefone, 20, stdin);
+
+        total++;
+
+        printf("Novo cliente (S/N)? ");
+        scanf(" %c", &resposta);
+        getchar(); // limpar o \n
+    } while (resposta == 'S' || resposta == 's');
+
+    printf("\nTotal de clientes cadastrados: %d\n", total);
+
+    return 0;
+}
