@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+// a) Cheque bancário
+struct Cheque {
+    char banco[50];
+    char agencia[20];
+    char numero[20];
+    float valor;
+};
+
+// b) Livro
+struct Livro {
+    char titulo[100];
+    char autor[50];
+    int ano;
+};
+
+// c) Aluno
+struct Aluno {
+    char nome[50];
+    int matricula;
+    float nota;
+};
+
+// d) Endereço
+struct Endereco {
+    char rua[50];
+    int numero;
+    char cidade[50];
+    char estado[3];
+};
+
+// e) Cadastro de Pessoa
+struct Pessoa {
+    char nome[50];
+    int idade;
+    struct Endereco endereco;
+};
+
+int main() {
+    struct Cheque cheque;
+    struct Livro livro;
+    struct Aluno aluno;
+    struct Endereco endereco;
+    struct Pessoa pessoa;
+
+    // Exemplo: preencher dados de cheque
+    printf("=== CHEQUE ===\n");
+    printf("Banco: "); fgets(cheque.banco, 50, stdin);
+    printf("Agência: "); fgets(cheque.agencia, 20, stdin);
+    printf("Número: "); fgets(cheque.numero, 20, stdin);
+    printf("Valor: "); scanf("%f", &cheque.valor); getchar();
+
+    printf("\n=== CHEQUE DIGITADO ===\n");
+    printf("Banco: %sAgência: %sNúmero: %sValor: %.2f\n", cheque.banco, cheque.agencia, cheque.numero, cheque.valor);
+
+    return 0;
+}
