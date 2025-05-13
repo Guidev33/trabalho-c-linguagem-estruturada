@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <string.h>
+
+// Definindo a estrutura do hotel
+struct Hotel {
+    char nome[100];
+    float distanciaCentro;  // em km
+    int visitantes;  // número de visitantes
+    int acessoAsfaltado;  // 0 - não asfaltado, 1 - asfaltado
+};
+
+int main() {
+    int n;
+
+    // Pergunta quantos hotéis a serem cadastrados
+    printf("Quantos hotéis deseja registrar? ");
+    scanf("%d", &n);
+
+    struct Hotel hoteis[n];
+    int countDistanciaMaiorQue15 = 0;
+    int countNaoAsfaltado = 0;
+    float somaVisitantesNaoAsfaltado = 0.0;
+    int countVisitantesNaoAsfaltado = 0;
+
+    // Entrada de dados para cada hotel
+    for (int i = 0; i < n; i++) {
+        printf("\nDigite o nome do hotel %d: ", i + 1);
+        scanf(" %[^\n]", hoteis[i].nome);  // Lê o nome com espaços
+
+        printf("Digite a distância do centro da cidade (km): ");
+        scanf("%f", &hoteis[i].distanciaCentro);
+
+        printf("Digite o número de visitantes no último feriado: ");
+        scanf("%d", &hoteis[i].visitantes);
+
+        printf("Digite o tipo de acesso ao hotel (0 - não asfaltado, 1 - asfaltado): ");
+        scanf("%d", &hoteis[i].acessoAsfaltado);
+    }
+
+    // Processando os hotéis de acordo com as condições solicitadas
+    for (int i = 0; i < n; i++) {
+        // a) Número de hotéis que distam mais de 15 km do centro
+        if (hoteis[i].distanciaCentro > 15.0) {
+            countDistanciaMaiorQue15++;
+        }
+
+        // b) Média de visitantes nos hotéis com acesso não asfaltado
+        if (hoteis[i].acessoAsfaltado == 0) {
+            somaVisitantesNaoAsfaltado += hoteis[i].visitantes;
+            countVisitantesNaoAsfaltado++;
+        }
+
+        // c) Nome e distância dos hotéis com acesso asfaltado e menos de 1.000 visitantes
+        if (hoteis[i].acessoAsfaltado == 1 && hoteis[i].visitantes < 1000) {
+            printf("\nHotel com acesso asfaltado e menos de 1.000 visitantes:\n");
+            printf("Nome: %s\n", hoteis[i].nome);
+            printf("Distância do centro: %.2f km\n", hoteis[i].distanciaCentro);
+        }
+    }
+
+    // Saídas dos resultados
+    printf("\nNúmero de hotéis que distam mais de 15 km do centro: %d\n", countDistanciaMaiorQue15);
+
+    if (countVisitantesNaoAsfaltado > 0) {
+        float mediaVisitantesNaoAsfaltado = somaVisitantesNaoAsfaltado / countVisitantesNaoAsfaltado;
+        printf("Quantidade média de visitantes nos hotéis com acesso não asfaltado: %.2f\n", mediaVisitantesNaoAsfaltado);
+    } else {
+        printf("Não há hotéis com acesso não asfaltado.\n");
+    }
+
+    return 0;
+}
