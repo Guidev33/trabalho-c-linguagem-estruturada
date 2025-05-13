@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Candidato {
+    char nome[100];
+    float notaPortugues;
+    float notaMatematica;
+    float notaConhecimentosGerais;
+};
+
+int main() {
+    struct Candidato candidato;
+    float media;
+
+    // Entrada de dados
+    printf("Digite o nome do candidato: ");
+    fgets(candidato.nome, sizeof(candidato.nome), stdin);
+    
+    // Remover o '\n' do final do nome, se existir
+    size_t len = strlen(candidato.nome);
+    if (len > 0 && candidato.nome[len - 1] == '\n') {
+        candidato.nome[len - 1] = '\0';
+    }
+
+    printf("Digite a nota de Portugues: ");
+    scanf("%f", &candidato.notaPortugues);
+
+    printf("Digite a nota de Matematica: ");
+    scanf("%f", &candidato.notaMatematica);
+
+    printf("Digite a nota de Conhecimentos Gerais: ");
+    scanf("%f", &candidato.notaConhecimentosGerais);
+
+    // Cálculo da média
+    media = (candidato.notaPortugues + candidato.notaMatematica + candidato.notaConhecimentosGerais) / 3;
+
+    // Saída de dados
+    printf("\nNome: %s\n", candidato.nome);
+    printf("Notas:\n");
+    printf("Português: %.2f\n", candidato.notaPortugues);
+    printf("Matemática: %.2f\n", candidato.notaMatematica);
+    printf("Conhecimentos Gerais: %.2f\n", candidato.notaConhecimentosGerais);
+    printf("Média: %.2f\n", media);
+
+    // Verificação de aprovação
+    if (media > 7.0 &&
+        candidato.notaPortugues >= 5.0 &&
+        candidato.notaMatematica >= 5.0 &&
+        candidato.notaConhecimentosGerais >= 5.0) {
+        printf("Situação: Aprovado\n");
+    } else {
+        printf("Situação: Reprovado\n");
+    }
+
+    return 0;
