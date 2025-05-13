@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+#define NUM_ARTIGOS 4
+
+// Estrutura para armazenar os dados de um artigo
+struct Artigo {
+    char nome[100];
+    float preco;
+    float descontoPercentual;
+    float precoComDesconto;
+};
+
+int main() {
+    struct Artigo artigos[NUM_ARTIGOS];
+    float total = 0.0;
+
+    // Entrada de dados
+    for (int i = 0; i < NUM_ARTIGOS; i++) {
+        printf("Digite o nome do artigo %d: ", i + 1);
+        scanf(" %[^\n]", artigos[i].nome);  // Lê string com espaços
+
+        printf("Digite o preço do artigo %d: ", i + 1);
+        scanf("%f", &artigos[i].preco);
+
+        printf("Digite o percentual de desconto do artigo %d: ", i + 1);
+        scanf("%f", &artigos[i].descontoPercentual);
+
+        // Cálculo do preço com desconto
+        artigos[i].precoComDesconto = artigos[i].preco * (1 - artigos[i].descontoPercentual / 100.0);
+
+        // Soma ao total
+        total += artigos[i].precoComDesconto;
+
+        printf("\n");
+    }
+
+    // Saída dos dados
+    printf("\nResumo da compra:\n");
+    for (int i = 0; i < NUM_ARTIGOS; i++) {
+        printf("Artigo: %s\n", artigos[i].nome);
+        printf("Preço original: R$ %.2f\n", artigos[i].preco);
+        printf("Preço com desconto: R$ %.2f\n\n", artigos[i].precoComDesconto);
+    }
+
+    printf("Total a pagar: R$ %.2f\n", total);
+
+    return 0;
+}
