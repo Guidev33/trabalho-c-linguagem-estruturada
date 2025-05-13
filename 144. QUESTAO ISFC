@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <ctype.h>  // para toupper
+
+// Definindo a estrutura do funcionário
+struct Funcionario {
+    char nome[100];
+    char categoria;
+    float salario;
+    float salarioReajustado;
+};
+
+// Função que retorna o percentual de aumento com base na categoria
+float obterPercentualAumento(char categoria) {
+    categoria = toupper(categoria);  // Convertendo para maiúsculo para evitar erro
+
+    switch (categoria) {
+        case 'A': case 'C': case 'F': case 'H':
+            return 10.0;
+        case 'B': case 'D': case 'E': case 'I': case 'J': case 'T':
+            return 15.0;
+        case 'K': case 'R':
+            return 25.0;
+        case 'L': case 'M': case 'N': case 'O': case 'P': case 'Q': case 'S':
+            return 35.0;
+        case 'U': case 'V': case 'W': case 'X': case 'Y': case 'Z':
+            return 50.0;
+        default:
+            return 0.0;  // Categoria inválida, sem aumento
+    }
+}
+
+int main() {
+    int n;
+    
+    printf("Quantos funcionários deseja processar? ");
+    scanf("%d", &n);
+
+    struct Funcionario funcionarios[n];
+
+    // Entrada de dados
+    for (int i = 0; i < n; i++) {
+        printf("\nFuncionário %d:\n", i + 1);
+        printf("Nome: ");
+        scanf(" %[^\n]", funcionarios[i].nome);
+
+        printf("Categoria (letra): ");
+        scanf(" %c", &funcionarios[i].categoria);
+
+        printf("Salário atual: R$ ");
+        scanf("%f", &funcionarios[i].salario);
+
+        float percentual = obterPercentualAumento(funcionarios[i].categoria);
+        funcionarios[i].salarioReajustado = funcionarios[i].salario * (1 + percentual / 100.0);
+    }
+
+    // Saída de dados
+    printf("\n--- SALÁRIOS REAJUSTADOS ---\n");
+    for (int i = 0; i < n; i++) {
+        printf("Nome: %s\n", funcionarios[i].nome);
+        printf("Categoria: %c\n", toupper(funcionarios[i].categoria));
+        printf("Salário reajustado: R$ %.2f\n\n", funcionarios[i].salarioReajustado);
+    }
+
+    return 0;
+}
