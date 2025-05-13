@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <string.h>
+
+// Definindo a estrutura do habitante
+struct Habitante {
+    char sexo;          // 'M' para masculino, 'F' para feminino
+    char corOlhos[10];  // Cor dos olhos (azuis, verdes ou castanhos)
+    char corCabelos[10]; // Cor dos cabelos (louros, castanhos ou pretos)
+    int idade;
+};
+
+int main() {
+    struct Habitante pessoa;
+    int maiorIdade = -1;  // Inicializando com um valor menor que qualquer idade
+    int countMulheres18a35 = 0;
+    int countOlhosVerdesCabelosLouros = 0;
+
+    // Leitura dos dados
+    while (1) {
+        // Entrada dos dados
+        printf("\nDigite a idade (digite -1 para encerrar): ");
+        scanf("%d", &pessoa.idade);
+        
+        // Encerra o programa se a idade for negativa
+        if (pessoa.idade < 0) {
+            break;
+        }
+
+        printf("Digite o sexo (M/F): ");
+        scanf(" %c", &pessoa.sexo);  // O espaço antes de %c é para consumir o caractere de nova linha
+
+        printf("Digite a cor dos olhos (azuis, verdes, castanhos): ");
+        scanf(" %s", pessoa.corOlhos);
+
+        printf("Digite a cor dos cabelos (louros, castanhos, pretos): ");
+        scanf(" %s", pessoa.corCabelos);
+
+        // a) Determinar a maior idade
+        if (pessoa.idade > maiorIdade) {
+            maiorIdade = pessoa.idade;
+        }
+
+        // b) Contar mulheres com idade entre 18 e 35 anos (inclusive)
+        if (pessoa.sexo == 'F' && pessoa.idade >= 18 && pessoa.idade <= 35) {
+            countMulheres18a35++;
+        }
+
+        // c) Contar indivíduos com olhos verdes e cabelos louros
+        if (strcmp(pessoa.corOlhos, "verdes") == 0 && strcmp(pessoa.corCabelos, "louros") == 0) {
+            countOlhosVerdesCabelosLouros++;
+        }
+    }
+
+    // Exibindo os resultados
+    printf("\nMaior idade dos habitantes: %d\n", maiorIdade);
+    printf("Quantidade de mulheres com idade entre 18 e 35 anos: %d\n", countMulheres18a35);
+    printf("Quantidade de indivíduos com olhos verdes e cabelos louros: %d\n", countOlhosVerdesCabelosLouros);
+
+    return 0;
+}
