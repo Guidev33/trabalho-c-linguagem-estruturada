@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+// Definindo a estrutura de um aluno
+struct Aluno {
+    int matricula;
+    float nota1, nota2, nota3;
+    float mediaFinal;
+};
+
+int main() {
+    struct Aluno aluno;
+    int totalAlunos = 0, aprovados = 0, reprovados = 0;
+
+    // Leitura dos dados dos alunos
+    while (1) {
+        printf("\nDigite a matrícula do aluno (ou 9999 para encerrar): ");
+        scanf("%d", &aluno.matricula);
+
+        // Encerra o programa se a matrícula for 9999
+        if (aluno.matricula == 9999) {
+            break;
+        }
+
+        printf("Digite a Nota 1: ");
+        scanf("%f", &aluno.nota1);
+
+        printf("Digite a Nota 2: ");
+        scanf("%f", &aluno.nota2);
+
+        printf("Digite a Nota 3: ");
+        scanf("%f", &aluno.nota3);
+
+        // Calculando a média final
+        aluno.mediaFinal = ((2 * aluno.nota1) + (3 * aluno.nota2) + (4 * aluno.nota3)) / 9.0;
+
+        // Exibindo o resultado do aluno
+        printf("Matrícula: %d\n", aluno.matricula);
+        printf("Média Final: %.2f\n", aluno.mediaFinal);
+
+        // Verificando se o aluno foi aprovado ou reprovado
+        if (aluno.mediaFinal >= 5.0) {
+            printf("APROVADO\n");
+            aprovados++;
+        } else {
+            printf("REPROVADO\n");
+            reprovados++;
+        }
+
+        totalAlunos++;
+    }
+
+    // Exibindo o total de alunos
+    printf("\nTotal de alunos: %d\n", totalAlunos);
+    printf("Total de aprovados: %d\n", aprovados);
+    printf("Total de reprovados: %d\n", reprovados);
+
+    return 0;
+}
