@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+// Definindo a estrutura do aluno
+struct Aluno {
+    int codigo;
+    float nota1;
+    float nota2;
+    float nota3;
+    float media;
+};
+
+float calcularMediaPonderada(float n1, float n2, float n3) {
+    float maiorNota, segundaNota, terceiraNota;
+
+    // Ordenando as notas para que a maior tenha peso 4
+    if (n1 >= n2 && n1 >= n3) {
+        maiorNota = n1;
+        segundaNota = (n2 >= n3) ? n2 : n3;
+        terceiraNota = (n2 < n3) ? n2 : n3;
+    } else if (n2 >= n1 && n2 >= n3) {
+        maiorNota = n2;
+        segundaNota = (n1 >= n3) ? n1 : n3;
+        terceiraNota = (n1 < n3) ? n1 : n3;
+    } else {
+        maiorNota = n3;
+        segundaNota = (n1 >= n2) ? n1 : n2;
+        terceiraNota = (n1 < n2) ? n1 : n2;
+    }
+
+    // Calculando a média ponderada
+    return (maiorNota * 4 + segundaNota * 3 + terceiraNota * 3) / 10.0;
+}
+
+int main() {
+    struct Aluno aluno;
+
+    // Entrada de dados
+    printf("Digite o código do aluno: ");
+    scanf("%d", &aluno.codigo);
+
+    printf("Digite a primeira nota: ");
+    scanf("%f", &aluno.nota1);
+
+    printf("Digite a segunda nota: ");
+    scanf("%f", &aluno.nota2);
+
+    printf("Digite a terceira nota: ");
+    scanf("%f", &aluno.nota3);
+
+    // Calculando a média ponderada
+    aluno.media = calcularMediaPonderada(aluno.nota1, aluno.nota2, aluno.nota3);
+
+    // Saída de dados
+    printf("\nCódigo do aluno: %d\n", aluno.codigo);
+    printf("Notas: %.2f, %.2f, %.2f\n", aluno.nota1, aluno.nota2, aluno.nota3);
+    printf("Média ponderada: %.2f\n", aluno.media);
+
+    // Verificando a situação do aluno
+    if (aluno.media >= 5.0) {
+        printf("APROVADO\n");
+    } else {
+        printf("REPROVADO\n");
+    }
+
+    return 0;
+}
