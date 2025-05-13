@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+// Definindo a estrutura para armazenar os dados de cada pessoa
+struct Pessoa {
+    char nome[100];
+    float altura;
+    float peso;
+};
+
+int main() {
+    struct Pessoa pessoa1, pessoa2;
+
+    // Entrada de dados
+    printf("Digite o nome da primeira pessoa: ");
+    scanf(" %[^\n]", pessoa1.nome);
+    printf("Digite a altura da primeira pessoa (em metros): ");
+    scanf("%f", &pessoa1.altura);
+    printf("Digite o peso da primeira pessoa (em kg): ");
+    scanf("%f", &pessoa1.peso);
+
+    printf("\nDigite o nome da segunda pessoa: ");
+    scanf(" %[^\n]", pessoa2.nome);
+    printf("Digite a altura da segunda pessoa (em metros): ");
+    scanf("%f", &pessoa2.altura);
+    printf("Digite o peso da segunda pessoa (em kg): ");
+    scanf("%f", &pessoa2.peso);
+
+    // Comparando para achar a pessoa mais pesada
+    if (pessoa1.peso > pessoa2.peso) {
+        printf("\nA pessoa mais pesada é %s com %.2f kg.\n", pessoa1.nome, pessoa1.peso);
+    } else {
+        printf("\nA pessoa mais pesada é %s com %.2f kg.\n", pessoa2.nome, pessoa2.peso);
+    }
+
+    // Comparando para achar a pessoa mais alta
+    if (pessoa1.altura > pessoa2.altura) {
+        printf("A pessoa mais alta é %s com %.2f metros.\n", pessoa1.nome, pessoa1.altura);
+    } else {
+        printf("A pessoa mais alta é %s com %.2f metros.\n", pessoa2.nome, pessoa2.altura);
+    }
+
+    return 0;
+}
