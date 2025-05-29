@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    int num, soma = 0;
+
+    printf("Digite um numero (0 para sair): ");
+    scanf("%d", &num);
+
+    while (num != 0) {
+        if (num < 0) {
+            soma += num;
+        }
+        printf("Digite um numero (0 para sair): ");
+        scanf("%d", &num);
+    }
+
+    printf("Somatorio dos numeros negativos: %d\n", soma);
+
+    return 0;
+}
