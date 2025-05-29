@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+    int num;
+    long long int produto = 1; // Produto pode crescer muito
+
+    printf("Digite um numero (0 para sair): ");
+    scanf("%d", &num);
+
+    while (num != 0) {
+        if (num % 2 == 0) {
+            produto *= num;
+        }
+        printf("Digite um numero (0 para sair): ");
+        scanf("%d", &num);
+    }
+
+    printf("Produtorio dos numeros pares: %lld\n", produto);
+
+    return 0;
+}
