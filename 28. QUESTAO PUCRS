@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    double S = 0;
+
+    printf("Digite o valor de n: ");
+    scanf("%d", &n);
+
+    for (int i = 1; i <= n; i++) {
+        double termo = 1.0 / i;
+        S += termo;
+        printf("Termo: 1/%d = %.5f\n", i, termo);
+    }
+
+    printf("Soma final: %.5f\n", S);
+
+    return 0;
+}
