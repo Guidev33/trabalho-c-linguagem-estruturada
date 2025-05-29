@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    char sexo, olhos[10], cabelos[10];
+    int idade;
+
+    printf("Digite a idade (negativa para sair): ");
+    scanf("%d", &idade);
+
+    while (idade >= 0) {
+        printf("Digite o sexo (M/F): ");
+        scanf(" %c", &sexo);
+
+        printf("Digite a cor dos olhos (azuis, verdes, castanhos): ");
+        scanf("%s", olhos);
+
+        printf("Digite a cor dos cabelos (louros, castanhos, pretos): ");
+        scanf("%s", cabelos);
+
+        // Aqui poderia processar dados ou fazer estatísticas
+
+        printf("\n--- Proximo habitante ---\n");
+        printf("Digite a idade (negativa para sair): ");
+        scanf("%d", &idade);
+    }
+
+    printf("\nFim da coleta de dados.\n");
+
+    return 0;
+}
