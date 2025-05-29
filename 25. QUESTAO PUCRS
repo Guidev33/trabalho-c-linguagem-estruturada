@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main() {
+    int cod, cont = 0;
+    float preco, preco_novo, soma_preco = 0, soma_preco_novo = 0;
+
+    printf("Digite o codigo do produto (negativo para sair): ");
+    scanf("%d", &cod);
+
+    while (cod >= 0) {
+        printf("Digite o preco: ");
+        scanf("%f", &preco);
+
+        preco_novo = preco * 1.2;
+
+        printf("Codigo: %d - Preco novo: %.2f\n", cod, preco_novo);
+
+        soma_preco += preco;
+        soma_preco_novo += preco_novo;
+        cont++;
+
+        printf("Digite o codigo do produto (negativo para sair): ");
+        scanf("%d", &cod);
+    }
+
+    if (cont > 0) {
+        printf("Media dos precos sem aumento: %.2f\n", soma_preco / cont);
+        printf("Media dos precos com aumento: %.2f\n", soma_preco_novo / cont);
+    } else {
+        printf("Nenhum produto inserido.\n");
+    }
+
+    return 0;
+}
