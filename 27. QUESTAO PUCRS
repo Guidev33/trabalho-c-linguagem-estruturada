@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+    int num, maior = -999, menor = 999, soma = 0;
+
+    for (int i = 0; i < 500; i++) {
+        printf("Digite um numero positivo: ");
+        scanf("%d", &num);
+
+        if (num > maior) maior = num;
+        if (num < menor) menor = num;
+
+        soma += num;
+    }
+
+    printf("Maior valor: %d\n", maior);
+    printf("Menor valor: %d\n", menor);
+    printf("Media: %.2f\n", (float)soma / 500);
+
+    return 0;
+}
