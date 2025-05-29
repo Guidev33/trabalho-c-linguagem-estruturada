@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    int idade, cont = 0, maior_idade = -999, menor_idade = 999;
+    char sexo;
+    float salario, soma_salario = 0;
+    int mulheres_ate_100 = 0;
+
+    printf("Digite a idade (negativa para sair): ");
+    scanf("%d", &idade);
+
+    while (idade >= 0) {
+        printf("Digite o sexo (M/F): ");
+        scanf(" %c", &sexo);
+        printf("Digite o salario: ");
+        scanf("%f", &salario);
+
+        soma_salario += salario;
+        cont++;
+
+        if (idade > maior_idade) maior_idade = idade;
+        if (idade < menor_idade) menor_idade = idade;
+
+        if (sexo == 'F' && salario <= 100) {
+            mulheres_ate_100++;
+        }
+
+        printf("Digite a idade (negativa para sair): ");
+        scanf("%d", &idade);
+    }
+
+    if (cont > 0) {
+        printf("Media de salario: %.2f\n", soma_salario / cont);
+        printf("Maior idade: %d\n", maior_idade);
+        printf("Menor idade: %d\n", menor_idade);
+        printf("Mulheres com salario ate R$100: %d\n", mulheres_ate_100);
+    } else {
+        printf("Nenhum dado inserido.\n");
+    }
+
+    return 0;
+}
